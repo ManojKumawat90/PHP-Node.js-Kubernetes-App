@@ -46,13 +46,17 @@ cd PHP-Node.js-Kubernetes-App
 Frontend (PHP)
 
 cd frontend
+
 docker build -t your-dockerhub-username/php-frontend .
+
 docker push your-dockerhub-username/php-frontend
 
 Backend (Node.js)
 
 cd ../Backend
+
 docker build -t your-dockerhub-username/node-backend .
+
 docker push your-dockerhub-username/node-backend
 
 3. Deploy to Kubernetes
@@ -60,12 +64,15 @@ docker push your-dockerhub-username/node-backend
 Apply Backend Configuration
 
 kubectl apply -f Backend/service.yaml
+
 kubectl apply -f Backend/node-deployment.yaml
 
 Apply Frontend Configuration
 
 kubectl apply -f frontend/service.yaml
+
 kubectl apply -f frontend/php-deployment.yaml
+
 
 Apply Ingress
 
@@ -74,17 +81,23 @@ kubectl apply -f Backend/ingress.yaml
 Apply SSL Certificate (Here I issued letsencrypt SSL Certificate)
 
 kubectl apply -f Backend/certificate.yaml
+
 kubectl apply -f Backend/clusterissuer.yaml
 
 4. Verify Deployments
 
 kubectl get pods -A
+
 kubectl get svc -A
+
 kubectl get ingress -A
+
 
 Access Your Project
 After applying everything, access your frontend:
 
+
 https://myproject.yourdomain.com
+
 
 It should show "Hello from Node.js Backend!" in the PHP frontend.
