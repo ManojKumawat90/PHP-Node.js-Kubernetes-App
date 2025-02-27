@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-backend
+  template:
+    metadata:
+      labels:
+        app: node-backend
+    spec:
+      containers:
+      - name: node-backend
+        image: myrepo.manoj.com/myrepo/php-backend
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: myrepo
+

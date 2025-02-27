@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-frontend
+  template:
+    metadata:
+      labels:
+        app: php-frontend
+    spec:
+      containers:
+      - name: php-frontend
+        image: myrepo.manoj.com/myrepo/php-frontend
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: myrepo

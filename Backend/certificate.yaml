@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: myproject-tls
+  namespace: default
+spec:
+  secretName: myproject-tls
+  commonName: myproject.opsguru.online
+  dnsNames:
+    - myproject.opsguru.online
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+
