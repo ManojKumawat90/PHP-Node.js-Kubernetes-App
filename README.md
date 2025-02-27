@@ -38,6 +38,7 @@ Setup & Deployment
 1. Clone the Repository
 
 git clone https://github.com/yourusername/PHP-Node.js-Kubernetes-App.git
+
 cd PHP-Node.js-Kubernetes-App
 
 2. Build and Push Docker Images
